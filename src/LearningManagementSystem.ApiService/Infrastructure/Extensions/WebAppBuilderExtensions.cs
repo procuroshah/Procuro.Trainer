@@ -1,5 +1,7 @@
-﻿using FSH.Framework.Core.Persistence;
+﻿using Carter;
+using FSH.Framework.Core.Persistence;
 using FSH.Framework.Infrastructure.Persistence;
+using LearningManagementSystem.ApiService.Features.Content;
 using LearningManagementSystem.ApiService.Infrastructure.EfCore;
 using LearningManagementSystem.ApiService.Infrastructure.EfCore.Configurations;
 
@@ -23,6 +25,12 @@ public static class WebAppBuilderExtensions
         // add db contexts
         builder.Services.BindDbContext<ApplicationDbContext>();
         builder.Services.AddScoped<IDbInitializer, ApplicationDbInitializer>();
+
+        //add carter endpoints
+        builder.Services.AddCarter(configurator: config =>
+        {
+            config.WithModule<ContentModule.Endpoints>();
+        });
 
         return builder;
     } 

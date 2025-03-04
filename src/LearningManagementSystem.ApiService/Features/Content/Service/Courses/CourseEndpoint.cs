@@ -42,7 +42,7 @@ public static class CourseEndpoint
     internal static RouteHandlerBuilder MapAddUpdateCourseEndpoint(this IEndpointRouteBuilder endpoints)
     {
         return endpoints
-            .MapPost("/", async (AddUpdateCourseRequest request, ISender mediator, 
+            .MapPost("/", async ([FromBody] AddUpdateCourseRequest request, ISender mediator, 
                 CancellationToken cancellationToken) =>
             {
                 var response = await mediator.Send(request, cancellationToken);
@@ -51,7 +51,7 @@ public static class CourseEndpoint
             .WithName(nameof(MapAddUpdateCourseEndpoint).Replace("Map",""))
             .WithSummary("Creates or updates a course")
             .WithDescription("Updates a course if it exists, otherwise creates a new course")
-            .Produces<AddUpdateCourseResponse>(StatusCodes.Status200OK, "The course was created or updated successfully")
+            .Produces<AddUpdateCourseResponse>()
             .RequirePermission("Permissions.Courses.Create")
             .MapToApiVersion(1);
     }

@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearningManagementSystem.ApiService\LearningManagementSystem.ApiService.csproj" />
-    <ProjectReference Include="..\LearningManagementSystem.ServiceDefaults\LearningManagementSystem.ServiceDefaults.csproj" />
     <ProjectReference Include="..\LearningManagementSystem.Web\LearningManagementSystem.Web.csproj" />
   </ItemGroup>
 

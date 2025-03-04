@@ -15,7 +15,7 @@ public static class ContentModule
         public override void AddRoutes(IEndpointRouteBuilder app)
         {
             var contentGroup = app.MapGroup("courses").WithTags("courses");
-            contentGroup.MapCreateOrUpdateRoleEndpoint();
+            contentGroup.MapAddUpdateCourseEndpoint();
             contentGroup.MapDeleteCourseEndpoint();
             contentGroup.MapGetCourseByIdEndpoint();
         }
