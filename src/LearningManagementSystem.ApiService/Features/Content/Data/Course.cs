@@ -1,9 +1,15 @@
-﻿namespace LearningManagementSystem.ApiService.Features.Content.Data;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Course
+namespace LearningManagementSystem.ApiService.Features.Content.Data;
+
+public class Course : AuditableEntity
 {
-    public Guid Id { get; set; }
+    [MaxLength(150)]
     public string Title { get; set; } = null!;
+    [MaxLength(250)]
     public string? Description { get; set; }
-    public List<Section>? Sections { get; set; }
+    [MaxLength(4000)]
+    public string? FullDescription { get; set; }
+    public ICollection<Section>? Sections { get; set; }
+    public ICollection<LearningPathCourse>? LearningPathCourses { get; set; }
 }

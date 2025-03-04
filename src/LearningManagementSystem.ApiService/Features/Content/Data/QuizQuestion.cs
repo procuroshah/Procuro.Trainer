@@ -1,10 +1,12 @@
-﻿namespace LearningManagementSystem.ApiService.Features.Content.Data;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class QuizQuestion
+namespace LearningManagementSystem.ApiService.Features.Content.Data;
+
+public class QuizQuestion : AuditableEntity
 {
-    public Guid Id { get; set; }
     public Guid QuizId { get; set; }
+    [MaxLength(250)]
     public string QuestionText { get; set; } = null!; // HTML content
-    public List<QuizOption> Options { get; set; }
+    public List<QuizOption>? Options { get; set; }
     public Quiz? Quiz { get; set; }
 }

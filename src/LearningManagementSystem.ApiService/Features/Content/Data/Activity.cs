@@ -1,10 +1,13 @@
-﻿namespace LearningManagementSystem.ApiService.Features.Content.Data;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Activity
+namespace LearningManagementSystem.ApiService.Features.Content.Data;
+
+public class Activity : AuditableEntity
 {
-    public Guid Id { get; set; }
     public Guid SectionId { get; set; }
+    [MaxLength(150)]
     public string Title { get; set; } = null!;
+    [MaxLength(250)]
     public string? Description { get; set; } // HTML content
     public bool DescriptionEnabled { get; set; }
     public string? AdditionalInfo { get; set; } // HTML content
@@ -13,9 +16,9 @@ public class Activity
     public Guid? MilestoneId { get; set; }
     public int Order { get; set; }
     public bool Enabled { get; set; }
-    public VideoOptionsType? VideoOptions { get; set; }
-    public QuizOptionsType? QuizOptions { get; set; }
-    public MilestoneRequirementType? MilestoneRequirements { get; set; }
+    public ActivityVideoOptions? VideoOptions { get; set; }
+    public ActivityQuizOptions? QuizOptions { get; set; }
+    public ActivityMilestoneRequirements? MilestoneRequirements { get; set; }
     public Section? Section { get; set; }
     
 }

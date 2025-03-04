@@ -1,6 +1,6 @@
 ﻿namespace LearningManagementSystem.ApiService.Features.Content.Data;
 
-public class LearningPathCourse
+public class LearningPathCourse : AuditableEntity<int>
 {
     public Guid LearningPathId { get; set; }
     public Guid CourseId { get; set; }

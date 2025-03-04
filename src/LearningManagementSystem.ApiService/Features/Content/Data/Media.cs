@@ -1,16 +1,19 @@
 ﻿using LearningManagementSystem.ApiService.Features.Users.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace LearningManagementSystem.ApiService.Features.Content.Data;
 
-public class Media
+public class Media : AuditableEntity
 {
-    public Guid Id { get; set; }
+    [MaxLength(150)]
+    public string Title { get; set; } = null!;
+    [MaxLength(150)]
     public string FileName { get; set; } = null!;
     public FileTypeEnum FileType { get; set; } // "Video" or "Document"
-    public string Url { get; set; }
+    [MaxLength(250)]
+    public string Url { get; set; } = null!;
     public Guid UploadedById { get; set; }
     public User? UploadedBy { get; set; }
-    public DateTime CreatedOnUtc { get; set; }
 }
 
 public enum FileTypeEnum

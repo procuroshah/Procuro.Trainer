@@ -4,10 +4,24 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <RootNamespace>LearningManagementSystem.Web</RootNamespace>
+	  <AssemblyName>LearningManagementSystem.Web</AssemblyName>
+	  <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Mapster" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" PrivateAssets="all" />
+	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LearningManagementSystem.ServiceDefaults\LearningManagementSystem.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\LearningManagementSystem.Web.Infrastructure\LearningManagementSystem.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\LearningManagementSystem.Web.Shared\LearningManagementSystem.Web.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
